@@ -148,3 +148,54 @@ legend {
 .tag.unverified {
   color: var(--loss);
 }
+
+h2 {
+  font-size: 1.25rem;
+}
+
+a {
+  color: inherit;
+}
+
+.warn {
+  padding: 12px;
+  border: 1px solid var(--loss);
+  border-radius: 8px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px 4px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.num {
+  text-align: right;
+  font-family: var(--font-geist-mono), monospace;
+  white-space: nowrap;
+}
+
+tr.total td {
+  font-weight: 600;
+}
+
+.legal {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+.legal li {
+  display: grid;
+  gap: 4px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}

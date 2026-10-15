@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import {
   calculate,
@@ -45,6 +46,9 @@ export default function Home() {
   return (
     <main>
       <h1>Lobster break-even</h1>
+      <p>
+        <Link href="/investor">Investor summary: startup costs, per-box economics and legal checklist →</Link>
+      </p>
       <p className="note">
         Year-one profit = lb/week × selling weeks × margin × (1 − shrink) − fixed costs. Each default is tagged
         SOURCED (audited Grok Bot model), ESTIMATE (planning assumption) or UNVERIFIED (not confirmed).
