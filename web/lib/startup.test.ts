@@ -12,7 +12,7 @@ describe("startup costs", () => {
   });
 
   it("totals the lean plan with the commissary line", () => {
-    expect(totalLean()).toBe(8310);
+    expect(totalLean()).toBe(7590);
   });
 });
 

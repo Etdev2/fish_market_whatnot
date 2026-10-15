@@ -5,6 +5,7 @@ import { useState } from "react";
 import type { Source } from "@/lib/breakeven";
 import {
   BOX_DEFAULTS,
+  CDFW_STEPS,
   boxEconomics,
   COMMISSARY,
   LEGAL,
@@ -156,6 +157,25 @@ export default function Investor() {
           <tr className="total"><td>Profit per box</td><td className="num">{usd.format(r.profit)}</td></tr>
         </tbody>
       </table>
+
+      <h2>CDFW fish business license, step by step</h2>
+      <ol className="legal steps">
+        {CDFW_STEPS.map((st, i) => (
+          <li key={st.step}>
+            <strong>
+              {i + 1}. {st.step}
+            </strong>
+            <span>{st.detail}</span>
+            {st.url && (
+              <small>
+                <a href={st.url} target="_blank" rel="noreferrer">
+                  Open the form or page
+                </a>
+              </small>
+            )}
+          </li>
+        ))}
+      </ol>
 
       <h2>Legal checklist</h2>
       <ul className="legal">

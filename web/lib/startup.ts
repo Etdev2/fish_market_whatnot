@@ -23,8 +23,8 @@ export const STARTUP_COSTS: CostLine[] = [
   {
     item: "CDFW Fish Wholesaler's License (2026)",
     amount: 720,
-    lean: 720,
-    leanNote: "Required; confirm the right license class with CDFW.",
+    lean: 0,
+    leanNote: "Selling only to consumers and buying only from licensed dealers is exempt under FGC 8030(c); confirm with CDFW. Buying straight from fishermen needs the $1,063 Receiver's License instead.",
     source: { label: "CDFW commercial fish business license descriptions", status: "SOURCED" },
     url: "https://wildlife.ca.gov/Licensing/Commercial-Fish-Business/Descriptions",
   },
@@ -167,6 +167,53 @@ export function boxEconomics(b: BoxInputs, startup = totalStartup()): BoxResult 
   };
 }
 
+// CDFW commercial fish business license, step by step (checked 2026-10-15).
+const GUIDE = "https://nrm.dfg.ca.gov/FileHandler.ashx?DocumentID=40729&inline";
+export const CDFW_STEPS: { step: string; detail: string; url?: string }[] = [
+  {
+    step: "Pick the license that matches how you buy",
+    detail:
+      "Buy only from licensed dealers and sell only to consumers: exempt under FGC 8030(c). Buy straight from fishermen at the dock: Fish Receiver's License, $1,063. Buy from dealers and also sell to restaurants or stores: Fish Wholesaler's License, $720. All three together: Multifunction, $2,645.75. 2026 fees.",
+    url: "https://wildlife.ca.gov/Licensing/Commercial-Fish-Business/Descriptions",
+  },
+  {
+    step: "Read the CDFW Information Guide",
+    detail: "Explains each license, ID rules and record duties.",
+    url: GUIDE,
+  },
+  {
+    step: "Set up a CDFW customer account",
+    detail: "First-time commercial customers email LRBCOMM@wildlife.ca.gov or call (916) 928-5822 to get a GO ID.",
+  },
+  {
+    step: "Fill in the License Worksheet",
+    detail:
+      "Use the physical street address of the main plant (a PO Box gets the worksheet returned) and the number of plants or outlets.",
+    url: "https://nrm.dfg.ca.gov/FileHandler.ashx?DocumentID=40728&inline",
+  },
+  {
+    step: "Add the Declaration of Plants",
+    detail: "One for each extra location, e.g. a second site in Long Beach as well as Newport Beach.",
+    url: "https://nrm.dfg.ca.gov/FileHandler.ashx?DocumentID=40724&inline",
+  },
+  {
+    step: "Add the Declaration of Owners",
+    detail: "Lists the LLC's owners. Attach the LLC's Articles of Organization and a photo ID (driver's license or state ID).",
+    url: "https://nrm.dfg.ca.gov/FileHandler.ashx?DocumentID=40726&inline",
+  },
+  {
+    step: "Submit and pay",
+    detail:
+      "Mail to License and Revenue Branch, PO Box 944209, Sacramento, CA 94244-2090, or file at a regional sales office. Check, money order, Visa or Mastercard; no cash. Allow 20 business days. Questions: (916) 928-5805, LRB@wildlife.ca.gov.",
+  },
+  {
+    step: "Keep it current",
+    detail:
+      "Display a copy at each site. Receivers file E-Tix fish tickets within three business days, keep signed tickets four years and pay landing fees quarterly. Licenses run Jan 1 to Dec 31; renew online.",
+    url: "https://nrm.dfg.ca.gov/FileHandler.ashx?DocumentID=153060&inline",
+  },
+];
+
 export type LegalItem = { item: string; detail: string; source: Source; url?: string };
 
 export const LEGAL: LegalItem[] = [
@@ -178,9 +225,9 @@ export const LEGAL: LegalItem[] = [
   {
     item: "CDFW fish business license",
     detail:
-      "Wholesaler's license ($720) covers buying from licensed dealers for resale to businesses. Selling only to consumers may need a different license; confirm with CDFW.",
-    source: { label: "CDFW license descriptions", status: "SOURCED" },
-    url: "https://wildlife.ca.gov/Licensing/Commercial-Fish-Business/Descriptions",
+      "Depends on how you buy and who you sell to; see the CDFW step-by-step below. Retail-only sellers buying from licensed dealers are exempt; buying from fishermen needs the $1,063 Receiver's License.",
+    source: { label: "CDFW Information Guide for Commercial Fish Business Licensing", status: "SOURCED" },
+    url: GUIDE,
   },
   {
     item: "FDA Seafood HACCP",
