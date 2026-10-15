@@ -214,6 +214,61 @@ export const CDFW_STEPS: { step: string; detail: string; url?: string }[] = [
   },
 ];
 
+// Time to launch, lean route (checked 2026-10-15). Steps in the same week run in parallel.
+export const TIMELINE: { when: string; step: string; detail: string; source: Source; url?: string }[] = [
+  {
+    when: "Week 1",
+    step: "Form the LLC, get an EIN and a seller's permit",
+    detail:
+      "File Articles of Organization on bizfile Online; check current processing dates with the Secretary of State. The IRS issues an EIN online the same day once the LLC exists.",
+    source: { label: "CA Secretary of State processing dates page", status: "ESTIMATE" },
+    url: "https://www.sos.ca.gov/business-programs/business-entities/processing-dates",
+  },
+  {
+    when: "Week 1",
+    step: "Insurance, dealer, commissary, Whatnot application",
+    detail:
+      "Get liability insurance quotes, line up a licensed lobster dealer and a permitted commissary kitchen, and apply to Whatnot as a fresh-food seller (onboarded by hand; timing not published).",
+    source: { label: "Planning assumption", status: "ESTIMATE" },
+  },
+  {
+    when: "Weeks 1–3",
+    step: "Seafood HACCP training",
+    detail:
+      "Segment One is online and self-paced; Segment Two is a one-day live class. Both together earn the AFDO certificate that meets the FDA training rule. Class dates set the pace.",
+    source: { label: "Cornell Seafood HACCP course structure", status: "SOURCED" },
+    url: "https://seafoodhaccp.cornell.edu/course-structure",
+  },
+  {
+    when: "Weeks 2–5",
+    step: "Health permit",
+    detail:
+      "A new site in Newport Beach needs OC Health Care Agency plan submittal, possibly a site evaluation, and an inspection before the permit; call (714) 433-6000. Long Beach permits come from the city's own health department. Packing at an already-permitted commissary is the fastest route. Processing time is not published.",
+    source: { label: "OC Health Care Agency food health permit application", status: "UNVERIFIED" },
+    url: "https://www.ochealthinfo.com/sites/healthcare/files/2023-04/Food%20Health%20Permit%20Application%20W.pdf",
+  },
+  {
+    when: "Weeks 2–5",
+    step: "CDFW license, only if buying from fishermen",
+    detail:
+      "The Receiver's License worksheet takes about 20 business days to process. Not needed on the retail-only route.",
+    source: { label: "CDFW Information Guide", status: "SOURCED" },
+    url: "https://nrm.dfg.ca.gov/FileHandler.ashx?DocumentID=40729&inline",
+  },
+  {
+    when: "Weeks 4–5",
+    step: "Test shipments",
+    detail: "Ship two or three boxes overnight to friends in hot and cold states to check the lobsters arrive alive.",
+    source: { label: "Planning assumption", status: "ESTIMATE" },
+  },
+  {
+    when: "Weeks 4–6",
+    step: "First Whatnot stream",
+    detail: "About 4 to 6 weeks from filing the LLC; 6 to 8 weeks if you need your own permitted site or the Receiver's License.",
+    source: { label: "Sum of the steps above", status: "ESTIMATE" },
+  },
+];
+
 export type LegalItem = { item: string; detail: string; source: Source; url?: string };
 
 export const LEGAL: LegalItem[] = [

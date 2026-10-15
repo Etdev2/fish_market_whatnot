@@ -10,6 +10,7 @@ import {
   COMMISSARY,
   LEGAL,
   STARTUP_COSTS,
+  TIMELINE,
   totalLean,
   totalStartup,
   type BoxInputs,
@@ -157,6 +158,18 @@ export default function Investor() {
           <tr className="total"><td>Profit per box</td><td className="num">{usd.format(r.profit)}</td></tr>
         </tbody>
       </table>
+
+      <h2>Time to launch: about 4 to 6 weeks</h2>
+      <ol className="legal">
+        {TIMELINE.map((t) => (
+          <li key={t.step}>
+            <small>{t.when}</small>
+            <strong>{t.step}</strong>
+            <span>{t.detail}</span>
+            <SourceNote source={t.source} url={t.url} />
+          </li>
+        ))}
+      </ol>
 
       <h2>CDFW fish business license, step by step</h2>
       <ol className="legal steps">
