@@ -1,0 +1,27 @@
+Input,Value,Type,Source/Note
+Buy price $/lb,10,"SOURCED (industry, not official)","2025 opening ex-vessel $7-10/lb; Catalina paid >=$9 (catalinaop.com, Oct 10 2025). No 2026 figure found"
+Sell price $/lb,16,ESTIMATE,wholesale to restaurants
+Lbs per week,150,ESTIMATE,
+Shrink/dead loss %,0.08,ESTIMATE,
+"Selling weeks, year 1",17,ESTIMATE,~Nov 16 2026 (est. first legal sale) to Mar 17 2027 = 17.3 wk
+CDFW Fish Receiver License 2026 $,1063,SOURCED,wildlife.ca.gov/Licensing/Commercial-Fish-Business/Descriptions; valid only to Dec 31 2026
+CDFW Fish Receiver License 2027 $,1063,UNVERIFIED,2027 fee not published; assumes 2026 fee. Needed because season runs to Mar 17 2027
+CDPH PFR total $/yr,874,SOURCED,"$524 base (code A/D, <=5,000 sq ft or 0-2 staff) + $250 seafood HACCP + $100 food safety fee; CDPH 8610 (7/2025)"
+City license $/yr,473.47,SOURCED (FY25-26),"Long Beach wholesale $473.47 + $12.27/employee, FY 7/1/25-6/30/26 table; FY26-27 table UNVERIFIED"
+LLC-1 + LLC-12 $,90,SOURCED,"$70 + $20, CA SOS"
+FTB annual tax $ (2 payments),1600,SOURCED,$800 for 2026 tax yr due Jan 15 2027 + $800 for 2027 due Apr 15 2027; ftb.ca.gov
+Insurance $/yr,4000,ESTIMATE,
+HACCP training $,400,ESTIMATE,
+Equipment (tanks/coolers) $,5000,ESTIMATE,range $3-8k
+Fuel $/week,60,ESTIMATE,
+Ice/tank/supplies $/lb,0.5,ESTIMATE,
+Full legal season weeks,23,SOURCED,Oct 7 2026 - Mar 17 2027 (14 CCR 121)
+,,,
+Net margin $/lb,=B3*(1-B5)-B2-B17,FORMULA,sell after shrink - buy - supplies
+Weekly profit before fixed,=B20*B4-B16,FORMULA,
+Monthly profit (4.33 wk) before fixed,=B21*4.33,FORMULA,
+Year-1 fixed,=SUM(B7:B15),FORMULA,"all licenses/fees/insurance/equipment, first 12 months"
+Season profit (year 1),=B21*B6-B23,FORMULA,
+Break-even lbs/season,=(B23+B16*B6)/B20,FORMULA,"year-1 fixed + fuel, over selling weeks"
+Break-even lbs/week,=B25/B6,FORMULA,
+Break-even lbs/week if selling full 23-wk season,=(B23+B16*B18)/B20/B18,FORMULA,reference only
